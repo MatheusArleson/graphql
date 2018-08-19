@@ -1,6 +1,5 @@
 package br.com.xavier.graphql.nodes.post;
 
-import br.com.xavier.graphql.nodes.author.Author;
 import lombok.NonNull;
 
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ public class PostRepository {
 
 	private final List<Post> posts;
 
-	public PostRepository() {
+	protected PostRepository() {
 		this.posts = new ArrayList<>();
 		initialize();
 	}
@@ -35,4 +34,7 @@ public class PostRepository {
 		this.posts.add(post);
 	}
 
+	public int countTotal() {
+		return posts.size();
+	}
 }

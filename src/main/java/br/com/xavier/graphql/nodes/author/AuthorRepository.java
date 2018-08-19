@@ -9,7 +9,7 @@ public class AuthorRepository {
 
 	private final List<Author> authors;
 
-	public AuthorRepository() {
+	protected AuthorRepository() {
 		this.authors = new ArrayList<>();
 		initialize();
 	}
@@ -34,4 +34,7 @@ public class AuthorRepository {
 		this.authors.add(author);
 	}
 
+	public Long countTotal() {
+		return authors.size() + 1L;
+	}
 }

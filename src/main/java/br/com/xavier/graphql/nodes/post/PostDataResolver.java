@@ -6,7 +6,7 @@ import com.coxautodev.graphql.tools.GraphQLResolver;
 
 public class PostDataResolver implements GraphQLResolver<Post>{
 
-	private final AuthorService authorService = new AuthorService();
+	private final AuthorService authorService = AuthorService.getInstance();
 
 	public PostDataResolver() {
 	}
