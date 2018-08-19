@@ -14,6 +14,12 @@ type Query {
 	allAuthors: [Author]
 }
 
+type Mutation {
+	createPost(content: String!, authorId: Long!): Post
+	createAuthor(name: String!): Author
+}
+
 schema {
 	query: Query
+	mutation: Mutation
 }
