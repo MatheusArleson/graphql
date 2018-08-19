@@ -1,10 +1,17 @@
-type Link {
-	url: String!
-	description: String!
+type Post {
+	id: Long!
+	content: String!
+	author: Author!
+}
+
+type Author {
+	id: Long!
+	name: String!
 }
 
 type Query {
-	allLinks: [Link]
+	allPosts: [Post]
+	allAuthors: [Author]
 }
 
 schema {

@@ -19,9 +19,10 @@
 
 		<graphql.java.version>9.2</graphql.java.version>
 		<graphql.java.tools.version>5.2.3</graphql.java.tools.version>
-		<graphql.java.servlet.version>6.1.2</graphql.java.servlet.version>
-
+		<graphql.java.servlet.version>5.2.0</graphql.java.servlet.version>
 		<javax.servlet.api.version>4.0.1</javax.servlet.api.version>
+
+		<lombok.version>1.18.2</lombok.version>
 	</properties>
 
 	<build>
@@ -79,6 +80,14 @@
 			<version>${javax.servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 	</dependencies>
 
