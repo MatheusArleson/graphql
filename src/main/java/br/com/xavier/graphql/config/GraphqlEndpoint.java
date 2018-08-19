@@ -11,12 +11,7 @@ import graphql.servlet.SimpleGraphQLServlet;
 import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.annotation.WebServlet;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 @WebServlet(urlPatterns = "/graphql")
 public class GraphqlEndpoint extends SimpleGraphQLServlet {
