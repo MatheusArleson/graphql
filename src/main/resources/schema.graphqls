@@ -1,21 +1,36 @@
+#Post - Things Humans do.
 type Post {
+	#Internal Identification
 	id: Long!
+	#What the Human typed.
 	content: String!
+	#Human who made it.
 	author: Author!
 }
 
+#Author - Humans registered.
 type Author {
+	#Internal Identification
 	id: Long!
+	#How the Human is called.
 	name: String!
+	#The posts of the Human.
+	#posts: [Post!]
 }
 
+#Queries Endpoint
 type Query {
+	#Get all Posts ever made.
 	allPosts: [Post]
+	#Get all Humans ever registered.
 	allAuthors: [Author]
 }
 
+#Mutation Endpoint
 type Mutation {
+	#Create a new Post.
 	createPost(content: String!, authorId: Long!): Post
+	#Register a new Human.
 	createAuthor(name: String!): Author
 }
 
