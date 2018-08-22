@@ -10,14 +10,11 @@ import java.util.List;
 
 public class GraphQLQueryRootResolver implements GraphQLQueryResolver {
 
-	private final PostService postService = PostService.getInstance();
-	private final AuthorService authorService = AuthorService.getInstance();
-
 	public List<Post> allPosts() {
-		return postService.findAll();
+		return PostService.getInstance().findAll();
 	}
 
 	public List<Author> allAuthors() {
-		return authorService.findAll();
+		return AuthorService.getInstance().findAll();
 	}
 }

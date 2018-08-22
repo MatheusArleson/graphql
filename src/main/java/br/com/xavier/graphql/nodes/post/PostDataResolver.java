@@ -6,12 +6,10 @@ import com.coxautodev.graphql.tools.GraphQLResolver;
 
 public class PostDataResolver implements GraphQLResolver<Post>{
 
-	private final AuthorService authorService = AuthorService.getInstance();
-
 	public PostDataResolver() {
 	}
 
 	public Author author(Post post){
-		return authorService.findById(post.getAuthorId());
+		return AuthorService.getInstance().findById(post.getAuthorId());
 	}
 }

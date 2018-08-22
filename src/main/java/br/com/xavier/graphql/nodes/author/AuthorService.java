@@ -4,7 +4,9 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AuthorService {
@@ -24,11 +26,27 @@ public class AuthorService {
 		return repository.findById(id);
 	}
 
-	public void save(@NonNull Author author) {
+	public Author createAuthor(@NonNull String name){
+		Author newAuthor = Author.of(getNextId(), name, new LinkedList<>());
+
+		save(newAuthor);
+		return newAuthor;
+	}
+
+	void save(@NonNull Author author) {
 		repository.save(author);
 	}
 
-	public Long getNextId(){
+	Long getNextId(){
 		return repository.countTotal() + 1L;
+	}
+
+	public void addPost(@NonNull Long authorId, Long postId){
+		Author author = this.findById(authorId);
+		if(Objects.isNull(author)){
+			throw new IllegalArgumentException("Unknown Author id.");
+		}
+
+		author.getPostsIds().add(postId);
 	}
 }

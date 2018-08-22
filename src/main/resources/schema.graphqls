@@ -15,7 +15,7 @@ type Author {
 	#How the Human is called.
 	name: String!
 	#The posts of the Human.
-	#posts: [Post!]
+	posts: [Post!]
 }
 
 #Queries Endpoint

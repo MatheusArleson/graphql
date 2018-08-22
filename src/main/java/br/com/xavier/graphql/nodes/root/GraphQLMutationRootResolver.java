@@ -8,23 +8,14 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 
 public class GraphQLMutationRootResolver implements GraphQLMutationResolver {
 
-	private final PostService postService = PostService.getInstance();
-	private final AuthorService authorService = AuthorService.getInstance();
-
 	public GraphQLMutationRootResolver() {
 	}
 
 	public Post createPost(String content, Long authorId){
-		Post newPost = Post.of(postService.getNextId(), content, authorId);
-
-		postService.save(newPost);
-		return newPost;
+		return PostService.getInstance().createPost(content, authorId);
 	}
 
 	public Author createAuthor(String name){
-		Author newAuthor = Author.of(authorService.getNextId(), name);
-
-		authorService.save(newAuthor);
-		return newAuthor;
+		return AuthorService.getInstance().createAuthor(name);
 	}
 }
